@@ -47,6 +47,7 @@ public class Login {
 			}
 		else{
 			assertEquals(driver.getTitle(),ListTitle);
+			ScreenshotCapture.capture(driver, ScreenshotCapture.screenshotPath()+i+".png");
 		}
 		ExcelRead.totalRows--;i++;
 	}
@@ -68,7 +69,7 @@ public class Login {
 		assertEquals(ExpectedUser,"You");
 		Reporter.log("User YOU present in List");
 		System.out.println("User Present");
-		ScreenshotCapture.capture(driver, ScreenshotCapture.screenshotPath());
+		ScreenshotCapture.capture(driver, ScreenshotCapture.screenshotPath()+"verifyUser.png");
   }
 	  catch(Exception e) {
 		  System.out.println("Exception encountered - "+e);
