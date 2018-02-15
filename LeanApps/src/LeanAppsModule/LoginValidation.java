@@ -32,6 +32,8 @@ public class LoginValidation {
 	while(ExcelRead.totalRows!=1) {
 		ExcelRead.userVal=ExcelRead.getCellData(i, Constants.Col_user);
 		ExcelRead.userPwd=ExcelRead.getCellData(i, Constants.Col_pwd);
+		driver.navigate().refresh();
+		Thread.sleep(5000);
 	System.out.println("**************************Validation instance"+i+"************************");	
 	driver.findElement(By.id("email")).sendKeys(ExcelRead.userVal);
 	System.out.println("*****************************Entered Username*****************************");
@@ -52,8 +54,7 @@ public class LoginValidation {
 	else{
 		assertEquals(driver.getTitle(),ListTitle);
 	}
-	driver.findElement(By.id("email")).clear();
-	driver.findElement(By.id("password")).clear();
+	
 	ExcelRead.totalRows--;i++;
 }
 }

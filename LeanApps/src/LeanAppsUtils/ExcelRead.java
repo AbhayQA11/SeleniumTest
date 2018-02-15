@@ -24,24 +24,31 @@ public class ExcelRead {
 		FileInputStream fis=new FileInputStream(path);	
 		wb=new XSSFWorkbook(fis);
 		sheet=wb.getSheet("Sheet1");
-	    totalRows = sheet.getLastRowNum();
-		//System.out.println(totalRows);
-		rw=sheet.getRow(rownum);
-    	Cell = rw.getCell(colnum);
-    	String CellData = "";
-            //if (Cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
-            	CellData = Cell.getStringCellValue();
-            /*} else if (Cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
-            	CellData = "" + Cell.getNumericCellValue();
-            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BOOLEAN) {
-            	CellData = "" + Cell.getBooleanCellValue();
-            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_FORMULA) {
-            	CellData = "" + Cell.getCellFormula();
-            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BLANK) {
-            	CellData = "";
-            }*/
-            return CellData;
+		try {
+			 totalRows = sheet.getLastRowNum();
+				//System.out.println(totalRows);
+				rw=sheet.getRow(rownum);
+		    	Cell = rw.getCell(colnum);
+		    	String CellData = "";
+		            //if (Cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
+		            	CellData = Cell.getStringCellValue();
+		            /*} else if (Cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
+		            	CellData = "" + Cell.getNumericCellValue();
+		            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BOOLEAN) {
+		            	CellData = "" + Cell.getBooleanCellValue();
+		            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_FORMULA) {
+		            	CellData = "" + Cell.getCellFormula();
+		            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BLANK) {
+		            	CellData = "";
+		            }*/
+		    return CellData;
 		}
+		catch (Exception e){
+			 
+			return"";
+
+			}
 	
 	}
+}
 
