@@ -11,23 +11,27 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import LeanAppsUtils.Constants;
 public class ExcelRead {
 	public static XSSFWorkbook wb;
+	public static int totalRows;
 	public static XSSFSheet sheet;
 	public static XSSFCell Cell;
 	public static XSSFRow rw;
+	public static String userVal;
+	public static String userPwd;
+	public static String userMessage;
 	@SuppressWarnings("deprecation")
 	public static String getCellData(int rownum,int colnum) throws Exception{
 		File path=new File(Constants.testDataFile);
 		FileInputStream fis=new FileInputStream(path);	
 		wb=new XSSFWorkbook(fis);
 		sheet=wb.getSheet("Sheet1");
-	    int totalRows = sheet.getLastRowNum();
-		System.out.println(totalRows);
+	    totalRows = sheet.getLastRowNum();
+		//System.out.println(totalRows);
 		rw=sheet.getRow(rownum);
     	Cell = rw.getCell(colnum);
     	String CellData = "";
-            if (Cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
+            //if (Cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
             	CellData = Cell.getStringCellValue();
-            } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
+            /*} else if (Cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
             	CellData = "" + Cell.getNumericCellValue();
             } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BOOLEAN) {
             	CellData = "" + Cell.getBooleanCellValue();
@@ -35,7 +39,9 @@ public class ExcelRead {
             	CellData = "" + Cell.getCellFormula();
             } else if (Cell.getCellType() == XSSFCell.CELL_TYPE_BLANK) {
             	CellData = "";
-            }
+            }*/
             return CellData;
 		}
-}
+	
+	}
+
