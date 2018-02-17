@@ -26,7 +26,7 @@ public class Login {
 			ExcelRead.userPwd=ExcelRead.getCellData(i, Constants.Col_pwd);
 			driver.navigate().refresh();
 			Thread.sleep(5000);
-		System.out.println("**************************Validation instance"+i+"************************");
+		System.out.println("**************************Validation instance "+i+"************************");
 		Reporter.log("Validate User id - "+i);
 		driver.findElement(By.id("email")).sendKeys(ExcelRead.userVal);
 		System.out.println("*****************************Entered Username*****************************");
